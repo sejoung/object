@@ -2,6 +2,7 @@ package org.eternity.theater.step02;
 
 
 import java.time.LocalDateTime;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 
@@ -13,7 +14,7 @@ public class AudienceTest {
 		Audience audience = new Audience(new Bag(10000));
 		Ticket ticket = new Ticket(10000L);
 
-		audience.buy(ticket);
+		Assertions.assertThat(audience.buy(ticket)).isEqualTo(10000);
 	}
 
 
@@ -25,6 +26,6 @@ public class AudienceTest {
 						10000));
 		Ticket ticket = new Ticket(10000L);
 
-		audience.buy(ticket);
+		Assertions.assertThat(audience.buy(ticket)).isEqualTo(0);
 	}
 }
